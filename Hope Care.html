@@ -47,6 +47,26 @@
 nav a:hover{
           background-color:darkcyan;
 }
+           /* ── NEWS ── */
+    
+      .news-section { padding: 50px 60px; }
+    .news-section h2 { font-size: 26px; color: #006400; margin-bottom: 26px; }
+    .news-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .news-card {
+      border: 1px solid #ddd; border-radius: 8px; overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,.08); transition: transform .2s;
+    }
+    .news-card:hover { transform: translateY(-4px); }
+    .news-card-img {
+      height: 160px; background: #228B22;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 13px; text-align: center; padding: 10px;
+    }
+    .news-card:nth-child(2) .news-card-img { background: #1a4080; }
+    .news-card:nth-child(3) .news-card-img { background: #8B0000; }
+    .news-card-body { padding: 14px; }
+    .news-card-body h3 { font-size: 15px; color: #333; margin-bottom: 8px; }
+    .news-card-body p  { font-size: 13px; color: #666; line-height: 1.6; }
 
      footer {
       background: #1a1a1a; color: #ccc;
@@ -82,6 +102,36 @@ nav a:hover{
     <li><a href="#directories">Directories</a></li>
     <li><a href="#gallery">Gallery</a></li>
     <li><a href="#about us">About Us</a></li>
+     <section class="news-section">
+ <h2>News &amp; Publications</h2>
+  <div class="news-grid">
+    <div class="news-card">
+      <div class="news-card-img">🏆 HopeCare Receives The Appreciation Certificate 2026</div>
+      <div class="news-card-body">
+        <h3>HopeCare Achieves Appreciation Certification</h3>
+        <p>HopeCare Hospital has successfully achieved the Appreciation Certification, marking a major milestone in quality health care delivery in Uganda.</p>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="news-card-img">👩‍⚕️ 2026 Heroes Day Celebrations</div>
+      <div class="news-card-body">
+        <h3>Heroes Day 2026</h3>
+        <p>HopeCare Hospital joins the nation in celebrating Heroes Day, recognizing the vital role of heroes in health care and community development and how they have contributed to the growth of HopeCare Hospital.</p>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="news-card-img">🏥 Ebola Successful Treatment</div>
+      <div class="news-card-body">
+        <h3>Successful Ebola Treatment</h3>
+        <p>HopeCare's medical staff successfully treated a mandatory and excellent treatment of ebola, demonstrating world-class medical expertise available in Uganda.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<link rel="stylesheet"herf="style.cs
+
+
 
 </ul>
 </nav>
