@@ -57,7 +57,51 @@
 		main{
 			padding:40px 60px 80px;
   }
-          
+       .carousel {
+  position: relative; overflow: hidden;
+  height: 600px; background: #111;
+  max-width: 900px; margin: 60px auto;
+}
+.slides {
+  position: relative; /* changed from flex */
+  width: 100%; height: 100%;
+}
+.slide {
+  position: absolute; top: 0; left: 0; /* lowercase + absolute */
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px; font-weight: bold; color: white;
+  opacity: 0;
+  transition: transform 0.6s ease, opacity 0.6s ease; /* fixed spacing */
+  transform: translateX(100%); /* start off-screen right */
+}
+.slide.active {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+.slide:nth-child(1) { background: linear-gradient(135deg,#006400,#228B22); }
+.slide:nth-child(2) { background: linear-gradient(135deg,#1a4080,#2060c0); }
+.slide:nth-child(3) { background: linear-gradient(135deg,#8B0000,#c0392b); }
+.slide:nth-child(4) { background: linear-gradient(135deg,#4a235a,#7d3c98); }
+.slide:nth-child(5) { background: linear-gradient(135deg,#1a5276,#2e86c1); }
+.carousel-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(0,0,0,.5); color: white; border: none;
+  padding: 12px 18px; font-size: 20px; cursor: pointer; border-radius: 4px; z-index: 10;
+}
+.carousel-btn.prev { left: 16px; }
+.carousel-btn.next { right: 16px; }
+.dots {
+  position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 10px; z-index: 10;
+}
+.dot {
+  width: 22px; height: 24px; border-radius: 50%;
+  background: rgba(255,255,255,.5); cursor: pointer; border: none;
+  transition: background 0.6s; /* fixed spacing */
+}
+.dot.active { background: white; }
+   
     
     .news-section,
 	.blog{
@@ -227,6 +271,65 @@
    </ul>
 </nav>
 </header>
+	<div class="carousel">
+  <div class="slides">
+    <div class="slide active" data-direction="right">Slide 1 →</div>
+    <div class="slide" data-direction="left">Slide 2 ←</div>
+    <div class="slide" data-direction="down">Slide 3 ↓</div>
+    <div class="slide" data-direction="up">Slide 4 ↑</div>
+    <div class="slide" data-direction="right">Slide 5 →</div>
+  </div>
+
+  <button class="carousel-btn prev">❮</button>
+  <button class="carousel-btn next">❯</button>
+
+  <div class="dots">
+    <button class="dot active"></button>
+    <button class="dot"></button>
+    <button class="dot"></button>
+    <button class="dot"></button>
+    <button class="dot"></button>
+  </div>
+</div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
+let index = 0;
+
+function setPosition(slide, direction, entering) {
+  if(direction === 'left') slide.style.transform = entering? 'translateX(-100%)' : 'translateX(100%)';
+  if(direction === 'right') slide.style.transform = entering? 'translateX(100%)' : 'translateX(-100%)';
+  if(direction === 'up') slide.style.transform = entering? 'translateY(-100%)' : 'translateY(100%)';
+  if(direction === 'down') slide.style.transform = entering? 'translateY(100%)' : 'translateY(-100%)';
+}
+
+function showSlide(newIndex) {
+  const current = slides[index];
+  const next = slides[newIndex];
+  const dir = next.dataset.direction;
+
+  
+  setPosition(current, dir, false);
+  current.classList.remove('active');
+
+  
+  setPosition(next, dir, true);
+  next.offsetHeight; 
+  next.classList.add('active');
+
+  dots.forEach(d => d.classList.remove('active'));
+  dots[newIndex].classList.add('active');
+  index = newIndex;
+}
+
+prevBtn.onclick = () => showSlide((index - 1 + slides.length) % slides.length);
+nextBtn.onclick = () => showSlide((index + 1) % slides.length);
+dots.forEach((dot, i) => dot.onclick = () => showSlide(i));
+</script>
+
 <main>
      <section class="news-section" id="home">
  <h2>News &amp; Publications</h2>
@@ -321,7 +424,7 @@
                            <p><b>Core Values</b><br>Health<br>Safety<br>Professionalism<br>Accountability<br>Integrity<br>Responsiveness<br>TeamWork</p>
                     </div>
                 </div>
-	>
+	
       <section class="blog" id="about-us">
         <h2>Blog Posts</h2>
         <div class="blog-grid">
