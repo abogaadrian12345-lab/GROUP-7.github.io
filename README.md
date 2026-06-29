@@ -87,6 +87,77 @@ HopeCare Hospital is a responsive web-based presentation platform for Uganda's l
 ---
 
 ## File Structure
+## Departments
+# departments.html — HopeCare Hospital (Departments page)
+
+This README documents the `departments.html` file in this repository. It explains the purpose of the page, how to preview it, which assets it depends on, and a short checklist of recommended fixes and improvements.
+
+## Purpose
+`departments.html` is a static HTML page that displays department information for the HopeCare Hospital website. It contains a header/navigation, a departments section showing three department cards (images + text), and a footer with contact and site links.
+
+## Preview / How to view locally
+1. Clone the repository (or open the repo folder).
+2. Ensure the image assets referenced in the file are present in the same folder:
+   - `logo.png`
+   - `diana.jpeg`
+   - `cynthia.jpeg`
+   - `me.jpeg`
+3. Open `departments.html` in your browser:
+   - Double-click the file or
+   - Use a local static server (recommended for browser security features), e.g. with Python:
+     - Python 3: `python -m http.server 8000` then visit `http://localhost:8000/departments.html`
+
+## Assets
+Place these files beside `departments.html` (or update the paths in the HTML if you keep them in a subfolder):
+- logo.png
+- diana.jpeg
+- cynthia.jpeg
+- me.jpeg
+
+## Recommended fixes and improvements
+The page works as a basic static page, but there are a few HTML/CSS issues and accessibility/usability improvements that should be made:
+
+1. HTML structure
+   - Add a `<head>` element with at least `<meta charset="utf-8">` and a `<title>`.
+   - The `<footer>` is currently placed after `</body>`; move the `<footer>` inside the `<body>` before the closing `</body>` tag.
+
+2. Invalid/mistyped attributes
+   - Header logo image: `<img src="logo.png" width="150" height="100")` has an extra `)` — remove it.
+   - Inline paragraph uses `padding-up: 15px;` — invalid property. Use `padding-top: 15px;`.
+   - CSS rule `flex wrap: wrap;` should be `flex-wrap: wrap;`.
+
+3. Accessibility
+   - Add `alt` attributes to all `<img>` tags (e.g., `alt="Head of General Surgery — Dr. Diana"`).
+   - Use semantic markup for the navigation (wrap links in a `<ul>` / `<li>` or use ARIA roles) and include skip links if needed.
+   - Ensure heading hierarchy is correct and unique page `<h1>` is present in the `<header>` or top of main content.
+
+4. Responsiveness
+   - The `.news-grid` uses `grid-template-columns: repeat(3, 1fr);` which can be too wide on small screens. Add media queries (e.g., switch to 1 column < 600px, 2 columns between 600–900px).
+   - Consider moving styles to an external CSS file (e.g., `styles.css`) for maintainability.
+
+5. Navigation links & filenames
+   - `about us.html` contains a space in the filename. Prefer `about-us.html` (or escape the space in links) to avoid URL issues.
+   - The CSS targets `nav ul` but the file uses direct `<a>` links in the `nav` (no `<ul>`). Either change the HTML to a list or adjust the CSS selectors.
+
+6. Minor styling suggestions
+   - Use relative units (rem, em) for font sizes to improve accessibility.
+   - Reduce heavy box-shadow or make it color consistent for better visual design.
+
+## Quick changelist to apply (example)
+- Move `<footer>` inside `<body>`.
+- Fix malformed `<img>` tag and add `alt` attributes.
+- Replace `padding-up` with `padding-top`.
+- Correct `flex wrap` → `flex-wrap`.
+- Add `<head>` with `<meta charset="utf-8">` and `<title>HopeCare Hospital — Departments</title>`.
+- Make `.news-grid` responsive via media queries.
+
+## Contribution notes
+- If you want, I can open a branch and submit a PR that implements the fixes above (move footer, correct typos, add alt attributes and basic responsiveness). Say "Apply fixes" and I will prepare the changes.
+
+## License & authorship
+- This README doesn't change code licensing. Keep the repository's license file (if any) to indicate reuse terms.
+- Author of the original `departments.html` file: repository owner.
+
 ## Directorates
 # kimone.html — HopeCare Hospital (Directorates) Page
 
