@@ -158,6 +158,7 @@ The page works as a basic static page, but there are a few HTML/CSS issues and a
 - This README doesn't change code licensing. Keep the repository's license file (if any) to indicate reuse terms.
 - Author of the original `departments.html` file: repository owner.
 
+
 ## Directorates
 # kimone.html — HopeCare Hospital (Directorates) Page
 
@@ -239,6 +240,7 @@ Include your preferred license here (e.g., MIT). If you want, add a `LICENSE` fi
 Contact
 -------
 For questions or updates: info@hopecare.go.ug
+
 
 ## Gallery
 # Gallery Page — gallery.html
@@ -327,4 +329,135 @@ If you want, I can:
 - Commit this README.md to the repository,
 - Apply the suggested HTML/CSS fixes,
 - Or produce a cleaned, responsive version of gallery.html with improved accessibility.
+
+
+## About Us
+# HopeCare Hospital Website
+
+## Overview
+This is the official website for **HopeCare Hospital**, Uganda's leading National Youth Referral Hospital. The site provides information about the hospital's services, departments, and contact information.
+
+## Project Structure
+
+### Pages
+- **home.html** - Landing page with hospital overview
+- **departments.html** - Information about hospital departments
+- **kimone.html** - Directorates section
+- **gallery.html** - Photo gallery of hospital facilities
+- **aboutus.html** - Contact page and hospital information (this file)
+
+### Assets
+- **logo.png** - Hospital logo (150x100px)
+- **hopecare.png** - Hospital facility image
+
+## aboutus.html - Contact Page
+
+### Purpose
+The "About Us" page serves as the primary contact hub for patients and visitors. Despite the filename, this page displays contact information and enables visitors to reach out to HopeCare Hospital.
+
+### Features
+
+#### Header Section
+- Navigation bar with links to all main pages
+- Consistent branding with hospital logo and name
+
+#### Main Content
+
+**Hero Section**
+- Headline: "Get in Touch with HopeCare"
+- Introductory message about hospital accessibility
+
+**Contact Cards** (3 columns)
+1. **Location Card**
+   - Icon: Location pin
+   - Address: Mulago Hill P.O Box 7051-Kampala, Uganda
+   - Call-to-action: "View Location" button
+
+2. **Phone Card**
+   - Icon: Phone icon
+   - Numbers:
+     - Toll Free Patient Affairs: 0800 100036
+     - Acute Care Unit: +256-414675065
+     - Medical Emergency: +256-414675065
+   - Call-to-action: "Call Now" button
+
+3. **Email Card**
+   - Icon: Envelope icon
+   - Email: info@hopecarehospital.ug
+   - Call-to-action: "Send Email" button
+
+**Hospital Image**
+- Featured image showcasing hospital facilities (hopecare.png)
+
+#### Footer Section
+- Hospital description and mission
+- Quick links to all pages
+- Services list (General Surgery, Pediatrics, Pharmaceuticals, Physiotherapy)
+- Contact information
+- Copyright notice
+
+### Design Details
+
+**Color Scheme**
+- Primary: #0d6efd (Blue)
+- Dark Header/Footer: #003366 (Dark Blue)
+- Background: Gradient (radial, subtle blues)
+
+**Typography**
+- Font Family: 'Inter', Arial, sans-serif
+- Responsive sizing with `clamp()` for fluid typography
+
+**Key Styling Features**
+- Glass-morphism contact cards with hover animations
+- Rounded corners (28px cards, 50% circular icons)
+- Smooth transitions (0.25s) on interactions
+- Responsive grid layout (1 column mobile, 3 columns desktop)
+- Drop shadows for depth
+
+### Technologies Used
+- **HTML5** - Semantic markup
+- **CSS3** - Advanced styling with gradients, animations, and media queries
+- **Bootstrap 5.3.3** - Grid system and responsive utilities
+- **Font Awesome 4.7** - Icon library
+
+### Responsive Design
+- Mobile-first approach
+- Breakpoint: 767px (tablets and below)
+- Adjustments:
+  - Header padding reduced on mobile
+  - Contact cards stack vertically
+  - Image height adjusted for smaller screens
+
+### Accessibility Features
+- Semantic HTML structure
+- Alt text for images
+- ARIA-friendly icon usage
+- Proper heading hierarchy
+- Sufficient color contrast
+
+### Contact Information
+| Channel | Details |
+|---------|---------|
+| **Phone (Toll Free)** | 0800 100036 |
+| **Phone (Acute Care)** | +256-414675065 |
+| **Email** | info@hopecarehospital.ug |
+| **Address** | Mulago Hill P.O Box 7051, Kampala, Uganda |
+| **Website** | www.hopecarehospital.go.ug |
+
+## How to Use
+
+1. Ensure all asset files (logo.png, hopecare.png) are in the same directory
+2. Open `aboutus.html` in a web browser
+3. Update contact information as needed in the HTML
+
+## Future Improvements
+- Add contact form functionality with backend validation
+- Integrate map service for location visualization
+- Add loading states for email/phone actions
+- Implement dark mode toggle
+- Add multilingual support
+
+## License
+© 2026 HopeCare Hospital. All rights reserved.
+Ministry of Health – Republic of Uganda
 
