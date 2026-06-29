@@ -239,3 +239,92 @@ Include your preferred license here (e.g., MIT). If you want, add a `LICENSE` fi
 Contact
 -------
 For questions or updates: info@hopecare.go.ug
+
+## Gallery
+# Gallery Page — gallery.html
+
+Description
+-----------
+This repository file is the gallery page for the HopeCare Hospital website. It displays photos of the hospital campus, staff, and community events and is intended to be used as part of the static site (GROUP-7.github.io).
+
+File
+----
+- Path: gallery.html (root of the site)
+
+Preview
+-------
+- Open gallery.html in any modern browser to preview.
+- For local development with automatic refresh, use VS Code Live Server or run a simple static server:
+  - Python 3: `python -m http.server 8000` and visit http://localhost:8000/gallery.html
+  - Node: `npx serve` and open the generated URL.
+
+Assets / Dependencies
+---------------------
+The page references a set of image files that must be present in the same directory (or update the paths accordingly):
+- logo.png
+- hospital 1.jpg
+- hospital 2.jpg
+- hospital 3.jpg
+- nurse 1.jpeg, nurse 2.jpeg, nurse 3.jpeg, nurse 4.jpeg
+- group 1.jpeg, group 2.jpeg
+- aisha.jpeg (note: currently referenced as " aisha.jpeg" with a leading space)
+- esther.jpeg, sophia.jpeg, diana.jpeg, me.jpeg, cynthia.jpeg
+- community.jpg, community 1.jpg, community 2.jpg
+
+Make sure file names and casing match exactly and avoid spaces in filenames (use hyphens or underscores) for better cross-platform compatibility.
+
+Known issues and suggested fixes
+--------------------------------
+The HTML/CSS works but has several issues you may want to clean up:
+
+HTML problems
+- Extra closing parenthesis in the logo <img> tag:
+  - Current: `<img src="logo.png" width="150" height="100")`
+  - Fix: `<img src="logo.png" width="150" height="100" alt="HopeCare logo">`
+- Footer is placed after the closing `</body>` tag. Move the `<footer>` inside the `<body>`.
+- Images do not include `alt` attributes — add descriptive alt text for accessibility.
+- Some image filenames have leading spaces (e.g., `" aisha.jpeg"`) — rename to remove spaces.
+
+CSS / layout issues
+- `.news-grid` uses `display: list;` which is invalid — replace with `display: grid;` (or `flex`) and add appropriate grid-template columns/rows.
+- `nav ul` has `flex wrap: wrap;` — should be `flex-wrap: wrap;`
+- Inline styles like `align: centre;` are invalid — use `text-align: center;` or proper flexbox alignment.
+- `.footer-col p, .footer-col a, .footer-col li` uses `text-decoration: italics;` — `text-decoration` doesn't accept `italics`; use `font-style: italic;` if needed.
+- Consider responsive sizing (use max-width and CSS media queries) so images stack nicely on smaller screens.
+
+Accessibility & semantics
+- Use semantic HTML: wrap navigation links in a `<nav><ul><li>...</li></ul></nav>`.
+- Add alt attributes for every `<img>`.
+- Use heading hierarchy (h1..h3) consistently.
+- Consider lazy-loading images (`loading="lazy"`) for performance.
+
+Small code suggestions (examples)
+- Fix logo img:
+  `<img src="logo.png" width="150" height="100" alt="HopeCare Hospital logo">`
+- Change `.news-grid` to CSS grid:
+  ```
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  ```
+- Move `<footer>` inside `<body>` just before `</body>`.
+
+Contributing
+------------
+- If you want me to apply the fixes above, I can update gallery.html and/or add this README to the repository and open a commit/PR.
+- Preferred workflow: fork or branch, make changes, test locally, then open a PR.
+
+License
+-------
+- You can add a project license (e.g., MIT) in the repo root. This README itself is public-domain style example text unless you specify otherwise.
+
+Contact
+-------
+If you want, I can:
+- Commit this README.md to the repository,
+- Apply the suggested HTML/CSS fixes,
+- Or produce a cleaned, responsive version of gallery.html with improved accessibility.
+
